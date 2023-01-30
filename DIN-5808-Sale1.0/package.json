@@ -2,7 +2,6 @@
   "name": "DIN-5808-Sale4.0",
   "version": "1.0.0",
   "description": "Your Figma Plugin",
-   
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -10,7 +9,6 @@
   },
   "author": "",
   "license": "",
-   
   "dependencies": {
     "jszip": "^3.10.1"
   }

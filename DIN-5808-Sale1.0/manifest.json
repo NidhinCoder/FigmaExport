@@ -1,8 +1,8 @@
 {
-  "name": "DIN-5808-Sale7.0",
+  "name": "DIN-5808-Sale9.0",
   "id": "1201824746931695088",
   "api": "1.0.0",
-  "main": "code.js",
+  "main": "ui.ts",
   "editorType": [
     "figma"
   ],

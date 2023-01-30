@@ -1,4 +1,3 @@
-"use strict";
 const { selection } = figma.currentPage;
 function hasValidSelection(nodes) {
     return !(!nodes || nodes.length === 0);

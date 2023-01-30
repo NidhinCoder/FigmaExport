@@ -1,4 +1,3 @@
-import JSZip from 'node_modules/jszip/dist/jszip.min.js';
 function typedArrayToBuffer(array) {
     return array.buffer.slice(array.byteOffset, array.byteLength + array.byteOffset);
 }
@@ -26,28 +25,29 @@ window.onmessage = async (event) => {
         return;
     const { exportableBytes } = event.data.pluginMessage;
     return new Promise(resolve => {
-        let zip = new JSZip();
+        //let zip = new JSZip();
         for (let data of exportableBytes) {
             const { bytes, name, setting } = data;
             const cleanBytes = typedArrayToBuffer(bytes);
             const type = exportTypeToBlobType(setting.format);
             const extension = exportTypeToFileExtension(setting.format);
             let blob = new Blob([cleanBytes], { type });
-            zip.file(`${name}${setting.suffix}${extension}`, blob, { base64: true });
+            //zip.file(`${name}${setting.suffix}${extension}`, blob, {base64: true});
         }
-        zip.generateAsync({ type: 'blob' })
-            .then((content) => {
-            const blobURL = window.URL.createObjectURL(content);
-            const link = document.createElement('a');
-            link.className = 'button button--primary';
-            link.href = blobURL;
-            link.download = "export.zip";
-            link.click();
-            link.setAttribute('download', name + '.zip');
-            resolve;
-        });
+        // zip.generateAsync({ type: 'blob' })
+        //   .then((content: Blob) => {
+        //     const blobURL = window.URL.createObjectURL(content);
+        //     const link = document.createElement('a');
+        //     link.className = 'button button--primary';
+        //     link.href = blobURL;
+        //     link.download = "export.zip"
+        //     link.click()
+        //     link.setAttribute('download', name + '.zip');
+        //     resolve;
+        //   });
     })
         .then(() => {
         window.parent.postMessage({ pluginMessage: 'Done!' }, '*');
     });
 };
+export {};
