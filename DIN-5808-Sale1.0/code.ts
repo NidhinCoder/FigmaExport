@@ -13,6 +13,7 @@ interface ExportableBytes {
 async function main(nodes:any): Promise<string> {
   if (!hasValidSelection(selection)) return Promise.resolve("Nothing selected for export")
 
+
   let exportableBytes: ExportableBytes[] = []
   for (let node of nodes) {
     let { name, exportSettings } = node
@@ -30,9 +31,14 @@ async function main(nodes:any): Promise<string> {
       })
     }
   }
-
+  console.log("UI will show but hidden")
   figma.showUI(__html__, { visible: false })
+
+  console.log("posting")
+
   figma.ui.postMessage({ exportableBytes })
+  console.log("posted")
+
 
   return new Promise(res => {
     figma.ui.onmessage = () => res
