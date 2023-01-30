@@ -4,7 +4,7 @@ function hasValidSelection(nodes:any) {
   return !(!nodes || nodes.length === 0)
 }
 
-export interface ExportableBytes {
+interface ExportableBytes {
   name: string;
   setting: ExportSettingsImage | ExportSettingsPDF | ExportSettingsSVG;
   bytes: Uint8Array;
