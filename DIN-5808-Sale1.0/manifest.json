@@ -1,0 +1,10 @@
+{
+  "name": "DIN-5808-Sale1.0",
+  "id": "1201824746931695088",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma"
+  ],
+  "ui": "ui.html"
+}
